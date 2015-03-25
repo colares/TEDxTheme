@@ -3,6 +3,7 @@
 
     <?php foreach ($slugs as $slug): ?>
       <?php
+
       $speaker     = $this->get_speaker_by_slug($slug);
       $video_id    = $this->get_video_id($slug);
       $name        = $speaker->post_title;
@@ -19,21 +20,24 @@
           <div class="speaker-description" style="background-image: url(<?= $image ?>);">
             <div class="speaker-border"></div>
             <div class="speaker-info">
-              <div class="speaker-title">Speaker</div>
+				<!-- @todo i18n it! -->
+              <div class="speaker-title">Palestrante</div>
               <h2><?= $name; ?></h2>
 
               <div class="speaker-position"><?= $excerpt ?></div>
             </div>
           </div>
           <!-- .speaker-title -->
-          <div class="speaker-video-thumb">
-            <div class="hover-container">
-              <div class="hover-table">
-                <div><span>See Intro Video</span></div>
-              </div>
-            </div>
-            <img src="http://img.youtube.com/vi/<?= $video_id; ?>/0.jpg">
-          </div>
+			<?php if($video_id != null) { ?>
+			  <div class="speaker-video-thumb">
+				<div class="hover-container">
+				  <div class="hover-table">
+					<div><span>See Intro Video</span></div>
+				  </div>
+				</div>
+				<img src="http://img.youtube.com/vi/<?= $video_id; ?>/0.jpg">
+			  </div>
+			<?php } ?>
           <!-- .speaker-video-thumb -->
         </a>
       </div>

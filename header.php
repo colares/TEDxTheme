@@ -53,7 +53,7 @@
           <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <a href="<?= get_theme_mod('logo_link', '/'); ?>">
               <?php (get_theme_mod('logo')) ? $logo = get_theme_mod('logo') : $logo = 'http://placehold.it/229x50.png' ?>
-              <img src="<?= $logo ?>" height="50" width="229" alt="Logo" class="pull-left">
+              <img src="<?= $logo ?>" height="50" alt="Logo" class="pull-left">
             </a>
             <div class="header-date-location pull-left">
               <time class="date" datetime="2014-10-02"><?= get_theme_mod('event_date', 'Event Date') ?></time>

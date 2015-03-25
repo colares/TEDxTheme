@@ -195,7 +195,7 @@ body.page-template-page_templatestemplate_home-php .banner {
   width: 100%; }
   body.page-template-page_templatestemplate_home-php .banner .banner-container {
     width: 75%;
-    background-color: rgba(100, 100, 100, 0.65);
+    /*background-color: rgba(100, 100, 100, 0.65);*/
     padding: 20px;
     margin: auto; }
 @media (max-width: 767px) {

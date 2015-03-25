@@ -11,7 +11,8 @@ get_header();
     <h1><?php the_field('banner_title'); ?></h1>
 
     <h2><?php the_field('banner_subtitle'); ?></h2>
-    <a class="btn btn-danger" href="<?php the_field('banner_callout_button_link'); ?>"><?php the_field('banner_callout_button_text'); ?></a>
+	  <br/>
+		<a class="btn btn-danger" href="<?php the_field('banner_callout_button_link'); ?>"><?php the_field('banner_callout_button_text'); ?></a>
   </div>
 </div>
 
@@ -26,7 +27,7 @@ get_header();
 
       <section>
         <div class="page-header">
-          <p><strong>Latest From the Blog</strong></p>
+          <p><strong>Última do blog</strong></p>
         </div>
         <?php
         $query = new TEDxQuery();
