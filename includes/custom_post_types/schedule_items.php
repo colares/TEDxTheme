@@ -213,6 +213,7 @@ class ScheduleItemsPostType {
       'has_archive'          => true,
       'hierarchical'         => false,
       'menu_position'        => 105,
+      'taxonomies'           => array('event_years'),
       'supports'             => array('title'),
       'register_meta_box_cb' => array($this, 'add_meta_boxes')
     );
