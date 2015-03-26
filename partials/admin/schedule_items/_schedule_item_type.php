@@ -1,6 +1,12 @@
 <?php
 global $SpeakerPostType;
-$speakers = $SpeakerPostType->get_speakers_for(2013);
+
+// @todo shame on me. working first, then refactoring (glup)
+//$event_year = get_terms('event_years');
+$event_year  = wp_get_post_terms(get_the_ID(), 'event_years');
+$current_year = isset($event_year[0]->slug) ? $event_year[0]->slug : null;
+
+$speakers = $SpeakerPostType->get_speakers_for($current_year);
 $speakers = $speakers->posts
 ?>
 <style type="text/css">
@@ -33,7 +39,6 @@ $speakers = $speakers->posts
 <p class="description">The type of the schedule item (speaker or other)</p>
 <input type="hidden" name="_schedule_item_type_nonce" value="<?=  wp_create_nonce('tedx_schedule_item_type_nonce'); ?>"/>
 
-
 <div class="speaker-list">
   <h4>Choose the Speaker(s) </h4>
 
@@ -49,7 +54,11 @@ $speakers = $speakers->posts
       <option value="<?=  $speaker->ID; ?>" <?php if ($selected): ?> selected="selected"<?php endif; ?>><?=  $speaker->post_title; ?></option>
     <?php endforeach; ?>
   </select>
-
+	<?php if($current_year != null) { ?>
+		<p class="description">Showing Speakers from <strong><?php echo $current_year; ?></strong>.</p>
+	<?php } else{ ?>
+		<p class="description" style="color: red">Choose an 'Event Year' first, then Update this post.</p>
+	<?php } ?>
   <p class="description">Select the speaker(s) of this schedule item</p>
 </div>
 <input type="hidden" name="_schedule_item_speaker_ids_nonce" value="<?=  wp_create_nonce('tedx_schedule_item_speaker_ids_nonce'); ?>"/>
