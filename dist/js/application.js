@@ -58,3 +58,9 @@ angular.module('TEDxTheme').controller('NavCtrl', function($scope) {
   };
 
 });
+
+angular.module('TEDxTheme').controller('TeamCtrl', function($scope) {
+
+    console.log('bli');
+
+});

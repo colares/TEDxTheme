@@ -1,4 +1,4 @@
-<section>
+<section ng-controller="TeamCtrl">
   <div class="row animated-tiles">
     <?php if ($team_members->have_posts()): while ($team_members->have_posts()) :
       $team_members->the_post(); ?>
@@ -13,10 +13,21 @@
         $thumbnail_src = get_bloginfo('template_url') . "/images/defaults/team.jpg";
       }
       ?>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 team-tile" data-remote="true"
-           data-href="<?php the_permalink(); ?>">
+      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 team-tile" data-remote="true"
+           data-href="<?php the_permalink(); ?>" ng-init="descriptions.<?= $post->ID ?>.show = false" ng-click="descriptions.<?= $post->ID ?>.show = !descriptions.<?= $post->ID ?>.show">
+		  <div ng-show="descriptions.<?= $post->ID ?>.show == true" class="team-info" style=" float: left;
+   position: absolute;
+   top: 0;
+   z-index: 1000;
+   background-color: #000;
+   padding: 10px;
+   margin: 0;
+   color: #FFFFFF;
+   font-weight: bold;"> descriçãããooo alsdkjas ldkajs d</div>
+		  <div class="team-photo-wrapper">
 
-        <div class="team-photo-wrapper">
+
+
           <img alt='<?php the_title(); ?>' src='<?=  $thumbnail_src; ?>' class="team-photo">
         </div>
         <!-- .team-photo-wrapper -->
@@ -24,9 +35,10 @@
           <div class='team-links pull-right'>
             <?php $twitter = get_post_meta($post->ID, '_team_twitter_link', true); ?>
             <?php if (!empty($twitter)): ?>
-              <div class='ir ico tweet ico-box'>
-                <a href='<?=  $twitter; ?>' target='_blank'>
-                  View Tweets
+<!--              <div class='ir ico tweet ico-box'>-->
+			  <div>
+                <a href='<?=  $twitter; ?>' target='_blank' style="display:block; margin: 10px">
+					<i class="fa fa-twitter fa-2x"></i>
                 </a>
               </div>
             <?php endif; ?>
@@ -35,7 +47,6 @@
           <!-- .team-links -->
           <div class="team-title">
             <h2><?=  $post->post_title; ?></h2>
-
             <div class="team-role">
               <?=  get_post_meta($post->ID, '_team_job_description', true) ?>
             </div>

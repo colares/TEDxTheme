@@ -195,7 +195,7 @@ body.page-template-page_templatestemplate_home-php .banner {
   width: 100%; }
   body.page-template-page_templatestemplate_home-php .banner .banner-container {
     width: 75%;
-    /*background-color: rgba(100, 100, 100, 0.65);*/
+    background-color: rgba(100, 100, 100, 0.65);
     padding: 20px;
     margin: auto; }
 @media (max-width: 767px) {
@@ -754,10 +754,7 @@ ul.page-numbers {
       z-index: 10; }
   .team-tile .team-title {
     padding: 15px 20px;
-    margin-right: 35px;
-    border-right: solid 1px #ff2b06;
-    border-color: rgba(0, 0, 0, 0.1);
-    line-height: 1; }
+    margin-right: 35px; }
     .team-tile .team-title .team-role {
       font-size: 16px; }
       .team-tile .team-title .team-role p {
