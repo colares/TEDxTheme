@@ -22,8 +22,17 @@ angular.module('TEDxTheme').controller('NavCtrl', function($scope) {
 
 });
 
-angular.module('TEDxTheme').controller('TeamCtrl', function($scope) {
 
-    console.log('bli');
+angular.module('TEDxTheme').controller('TeamCtrl', function($scope) {
+    $scope.descriptions = [];
+
+    $scope.showDescription = function(postId) {
+        for (var index = 0; index < $scope.descriptions.length; ++index) {
+            console.log($scope.descriptions[index]);
+            $scope.descriptions[index] = {show: false};
+        }
+        console.log($scope.descriptions);
+        $scope.descriptions[postId] = {show: true};
+    };
 
 });

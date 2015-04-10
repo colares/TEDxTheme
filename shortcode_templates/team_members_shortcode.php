@@ -13,22 +13,43 @@
         $thumbnail_src = get_bloginfo('template_url') . "/images/defaults/team.jpg";
       }
       ?>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 team-tile" data-remote="true"
-           data-href="<?php the_permalink(); ?>" ng-init="descriptions.<?= $post->ID ?>.show = false" ng-click="descriptions.<?= $post->ID ?>.show = !descriptions.<?= $post->ID ?>.show">
-		  <div ng-show="descriptions.<?= $post->ID ?>.show == true" class="team-info" style=" float: left;
-   position: absolute;
-   top: 0;
-   z-index: 1000;
-   background-color: #000;
-   padding: 10px;
-   margin: 0;
-   color: #FFFFFF;
-   font-weight: bold;"> descriçãããooo alsdkjas ldkajs d</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+
+      <div class="team-tile" data-remote="true"
+           data-href="<?php the_permalink(); ?>" ng-init="descriptions[<?= $post->ID ?>] = {show: false}">
+
 		  <div class="team-photo-wrapper">
 
+			  			<div ng-show="descriptions[<?= $post->ID ?>].show == true" style=" float: left;
+			     position: absolute;
+			     top: 0;
+			     width: 90%;
+			     z-index: 1000;
+			     padding: 20px;
+			     margin: 0;
+			     color: #FFFFFF;
+			     font-weight: normal;">
+							<span ng-click="descriptions[<?= $post->ID ?>].show = false"  class="pull-right"><i class="fa fa-times fa-2x text-muted"></i></span>
 
+							<p style="text-align: left"><small><?=  $post->post_content; ?></small></p>
+						</div>
 
-          <img alt='<?php the_title(); ?>' src='<?=  $thumbnail_src; ?>' class="team-photo">
+			  <div ng-show="descriptions[<?= $post->ID ?>].show == false" style=" float: left;
+			     position: absolute;
+			     top: 0;
+			     width: 90%;
+			     z-index: 1000;
+			     padding: 20px;
+			     color: white;
+			     margin: 0;
+			     font-weight: normal;"
+				   ng-click="showDescription(<?= $post->ID ?>)">
+				  <span  class="pull-right"><i class="fa fa-info-circle fa-2x"></i></span>
+<!--				  <i class="fa fa-info-circle"></i>-->
+			  </div>
+			  <img alt='<?php the_title(); ?>' ng-show="descriptions.<?= $post->ID ?>.show == true" src='<?= get_bloginfo('template_url') . "/assets/img/000000.gif" ?>' class="team-photo" >
+
+          <img alt='<?php the_title(); ?>'  ng-show="descriptions.<?= $post->ID ?>.show == false" src='<?=  $thumbnail_src; ?>' class="team-photo">
         </div>
         <!-- .team-photo-wrapper -->
         <div class="team-info">
@@ -37,7 +58,7 @@
             <?php if (!empty($twitter)): ?>
 <!--              <div class='ir ico tweet ico-box'>-->
 			  <div>
-                <a href='<?=  $twitter; ?>' target='_blank' style="display:block; margin: 10px">
+                <a href='<?=  $twitter; ?>' target='_blank' style="display:block; margin: 10px; z-index: 2000;">
 					<i class="fa fa-twitter fa-2x"></i>
                 </a>
               </div>
@@ -62,6 +83,7 @@
 
 
       </div>
+		</div>
     <?php endwhile;
     endif;
     ?>
