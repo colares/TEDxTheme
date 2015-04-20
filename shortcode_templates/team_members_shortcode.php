@@ -16,45 +16,26 @@
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
       <div class="team-tile" data-remote="true"
-           data-href="<?php the_permalink(); ?>" ng-init="descriptions[<?= $post->ID ?>] = {show: false}">
-
-		  <div class="team-photo-wrapper">
-
-			  			<div ng-show="descriptions[<?= $post->ID ?>].show == true" style=" float: left;
-			     position: absolute;
-			     top: 0;
-			     width: 90%;
-			     z-index: 1000;
-			     padding: 20px;
-			     margin: 0;
-			     color: #FFFFFF;
-			     font-weight: normal;">
-							<span ng-click="descriptions[<?= $post->ID ?>].show = false"  class="pull-right"><i class="fa fa-times fa-2x text-muted"></i></span>
-
-							<p style="text-align: left"><small><?=  $post->post_content; ?></small></p>
-						</div>
-
-			  <div ng-show="descriptions[<?= $post->ID ?>].show == false" style=" float: left;
-			     position: absolute;
-			     top: 0;
-			     width: 90%;
-			     z-index: 1000;
-			     padding: 20px;
-			     color: white;
-			     margin: 0;
-			     font-weight: normal;"
-				   ng-click="showDescription(<?= $post->ID ?>)">
-				  <span  class="pull-right"><i class="fa fa-info-circle fa-2x"></i></span>
-<!--				  <i class="fa fa-info-circle"></i>-->
-			  </div>
-			  <img alt='<?php the_title(); ?>' ng-show="descriptions.<?= $post->ID ?>.show == true" src='<?= get_bloginfo('template_url') . "/assets/img/000000.gif" ?>' class="team-photo" >
-
-          <img alt='<?php the_title(); ?>'  ng-show="descriptions.<?= $post->ID ?>.show == false" src='<?=  $thumbnail_src; ?>' class="team-photo">
+           data-href="<?php the_permalink(); ?>">
+		  <?php
+		  	$twitter = get_post_meta($post->ID, '_team_twitter_link', true);
+		  	$teamMemberJobDescription = get_post_meta($post->ID, '_team_job_description', true);
+		  ?>
+		  <div class="team-photo-wrapper"
+			   style="position: relative; cursor: pointer;"
+			   ng-click="setModalDescriptionId(<?= $post->ID ?>)"
+			   data-toggle="modal" data-target="#descriptionModal"
+			   ng-init="descriptions[<?= $post->ID ?>] = {title: '<?= $post->post_title; ?>', content: '<?= $post->post_content; ?>', jobDescription: '<?= $teamMemberJobDescription ?>', twitter: '<?= $twitter; ?>' }">
+			<i class="fa fa-2x fa-info-circle"
+			   style="position: absolute;right:10px; top: 10px;z-index: 10; color: white"
+				></i>
+		  	<img
+				alt='<?php the_title(); ?>' src='<?=  $thumbnail_src; ?>'
+				style="position: relative; z-index: 1;" class="team-photo">
         </div>
         <!-- .team-photo-wrapper -->
         <div class="team-info">
           <div class='team-links pull-right'>
-            <?php $twitter = get_post_meta($post->ID, '_team_twitter_link', true); ?>
             <?php if (!empty($twitter)): ?>
 <!--              <div class='ir ico tweet ico-box'>-->
 			  <div>
@@ -88,4 +69,31 @@
     endif;
     ?>
   </div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+<!--				<div class="modal-header">-->
+<!--					-->
+<!--				</div>-->
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="modal-title" id="myModalLabel">
+						{{descriptions[modalDescriptionId].title}}
+					</h3>
+					<p class="text-muted"><em>{{descriptions[modalDescriptionId].jobDescription}}</em></p>
+					<p>{{descriptions[modalDescriptionId].content}}</p>
+					<p>
+						<a href='https://twitter.com/<?=  $twitter; ?>' target='_blank'>
+							<?=  $twitter; ?>
+						</a>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

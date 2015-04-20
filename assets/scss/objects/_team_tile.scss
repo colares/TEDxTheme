@@ -6,6 +6,12 @@
     position: relative;
     max-width: 100%;
     top: 0;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+  }
+  .team-photo:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
   }
 
   .details-open .team-photo {
