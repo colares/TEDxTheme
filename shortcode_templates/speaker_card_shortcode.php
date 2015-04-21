@@ -32,7 +32,7 @@
 			  <div class="speaker-video-thumb">
 				<div class="hover-container">
 				  <div class="hover-table">
-					<div><span>See Intro Video</span></div>
+					<div><span>Vídeo de apresentação</span></div>
 				  </div>
 				</div>
 				<img src="http://img.youtube.com/vi/<?= $video_id; ?>/0.jpg">
