@@ -192,7 +192,8 @@ class PartnerPostType {
     $partner_type = $a['type'];
     if ($partner_type !== null) {
       $partners = $this->get_raw_partners_for($partner_type);
-      $name = $a['type_name'];
+		$term = get_term_by('slug', $partner_type, 'partner_types');
+		$name = $term->description;
       ob_start();
       require(get_template_directory() . '/shortcode_templates/partners_shortcode.php');
       $output = ob_get_clean();

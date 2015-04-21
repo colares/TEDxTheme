@@ -1,12 +1,5 @@
 <section>
   <header>
-	  kjhkjhkjhkjh
-	  <?php
-
-	  print_r($post);
-
-
-	  ?>
     <h1 class="minor"><?= $name; ?></h1>
   </header>
   <div class="row">
