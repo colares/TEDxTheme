@@ -238,7 +238,7 @@ body.page-template-default section header {
   border-bottom: solid 1px #e5e5e5;
   padding-bottom: 5px;
   margin-bottom: 20px; }
-body.page-template-default .partner-tile img, body.page-template-default .team-tile img {
+body.page-template-default .team-tile img {
   width: 100%; }
 
 table.event-listing {
