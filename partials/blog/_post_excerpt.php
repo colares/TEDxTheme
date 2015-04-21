@@ -48,6 +48,6 @@ $feature_image = (isset($feature_image) ? $feature_image : 'post_sticky');
     </div>
   <?php endif; ?>
 
-  <small><a class="learn-more uppercase" href="<?php the_permalink(); ?>">Learn More</a></small>
+  <small><a class="learn-more uppercase" href="<?php the_permalink(); ?>">Continue lendo</a></small>
 
 </article>
