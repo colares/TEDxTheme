@@ -14,8 +14,11 @@ $template_url = get_template_directory_uri();
           <?= get_theme_mod('twitter_follow_button'); ?>
         </div>
         <div class="col-md-5 col-sm-12 web-partners">
-          <div class="built-by gutter-right gutter-bottom">Criado e hospedado por <a target="_blank" href="http://www.agilize.com.br">Agilize Contabilidade Online</a>, baseado no trabalho de <a target="_blank" href="http://www.jetcooper.com">Jet Cooper</a>
-		  e <a target="_blank" href="http://www.twg.ca">TWG</a>.
+          <div class="built-by gutter-right gutter-bottom">
+			  <p>Criado e hospedado por <a target="_blank" href="http://www.agilize.com.br">Agilize Contabilidade Online</a>.
+				  <br/><small>Baseado no trabalho de <a target="_blank" href="http://www.jetcooper.com">Jet Cooper</a>
+					  e <a target="_blank" href="http://www.twg.ca">TWG</a>.</small>
+			  </p>
         </div>
       </div>
 
