@@ -7,6 +7,8 @@
             <?php
             $speaker  = get_post();
             $video_id = get_post_meta($speaker->ID, '_speaker_video_id', true);
+			$image = wp_get_attachment_image_src(get_post_thumbnail_id($speaker->ID), 'speaker');
+			  if (is_array($image) && !empty($image[0])) { $image = $image[0]; }
             $name     = $speaker->post_title;
             $excerpt  = $speaker->post_excerpt;
             ?>
@@ -23,22 +25,32 @@
               </div>
             <?php endif; ?>
 
-            <div class="row">
-              <div class="col-md-6"></div>
-              <div class="col-md-6">
-                <div class="pull-right">
-                  <span class="social social-facebook">
-                    <div class="fb-like" data-href="<?= get_permalink($speaker->ID); ?>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-                  </span>
-                  <span class="social social-twitter">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="<?= get_theme_mod('twitter_account') ?>">Tweet</a>
-                  </span>
-                </div>
-              </div>
-            </div>
+
             <div class="user-generated-content">
-              <?php the_content(); ?>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" style="text-align: center">
+						<img src="<?= $image; ?>" alt="" style="margin-bottom: 30px"/>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-9 col-lg-9">
+						<?php the_content(); ?>
+					</div>
+				</div>
             </div>
+
+		  <div class="row" style="margin-bottom: 60px">
+			  <div class="col-md-6"></div>
+			  <div class="col-md-6">
+				  <div class="pull-right">
+			  <span class="social social-facebook">
+				<div class="fb-like" data-href="<?= get_permalink($speaker->ID); ?>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+			  </span>
+			  <span class="social social-twitter">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="<?= get_theme_mod('twitter_account') ?>">Tweet</a>
+			  </span>
+				  </div>
+			  </div>
+		  </div>
+
           <?php endwhile; endif; ?>
         </div>
       </div>
