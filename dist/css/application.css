@@ -189,13 +189,12 @@ body.page-template-page_templatestemplate_home-php .post-excerpt img {
   width: 100%; }
 body.page-template-page_templatestemplate_home-php .banner {
   color: #FFF;
-  text-align: center;
+  text-align: right;
   overflow: hidden;
   position: relative;
   width: 100%; }
   body.page-template-page_templatestemplate_home-php .banner .banner-container {
     width: 75%;
-    background-color: rgba(100, 100, 100, 0.65);
     padding: 20px;
     margin: auto; }
 @media (max-width: 767px) {
@@ -216,14 +215,14 @@ body.page-template-page_templatestemplate_home-php .banner {
     font-size: 26px; } }
 @media (min-width: 992px) {
   body.page-template-page_templatestemplate_home-php .banner .banner-container {
-    margin-top: 115px;
+    margin-top: 335px;
     margin-bottom: 115px; }
   body.page-template-page_templatestemplate_home-php .banner h1 {
     font-size: 80px;
     font-weight: bold; } }
 @media (min-width: 1200px) {
   body.page-template-page_templatestemplate_home-php .banner .banner-container {
-    margin-top: 115px;
+    margin-top: 335px;
     margin-bottom: 115px; }
   body.page-template-page_templatestemplate_home-php .banner h1 {
     font-size: 80px;
@@ -478,9 +477,9 @@ footer {
 #sidebar ul > li form.searchform label {
   display: none; }
 #sidebar ul > li form.searchform input[type="text"] {
-  width: 70%; }
+  width: 62%; }
 #sidebar ul > li form.searchform input[type="submit"] {
-  width: 28%;
+  width: 36%;
   max-width: 90px; }
 #sidebar ul > li.widget_categories ul {
   list-style: decimal;

@@ -85,8 +85,9 @@
 					<p class="text-muted"><em>{{descriptions[modalDescriptionId].jobDescription}}</em></p>
 					<p>{{descriptions[modalDescriptionId].content}}</p>
 					<p>
-						<a href='https://twitter.com/<?=  $twitter; ?>' target='_blank'>
-							<?=  $twitter; ?>
+
+						<a href='{{descriptions[modalDescriptionId].twitter}}' target='_blank'>
+							<i class="fa fa-twitter"></i> {{descriptions[modalDescriptionId].twitter}}
 						</a>
 					</p>
 				</div>
