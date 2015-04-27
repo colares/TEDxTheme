@@ -175,7 +175,9 @@ class TeamPostType {
   function get_raw_team_members () {
     $arguments = array(
       'post_type'      => 'team_member',
-      'posts_per_page' => 100
+      'posts_per_page' => 100,
+		'orderby' => 'menu_order',
+		'order'   => 'ASC',
     );
 
     return new WP_Query($arguments);
