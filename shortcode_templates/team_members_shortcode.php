@@ -48,7 +48,13 @@
           </div>
           <!-- .team-links -->
           <div class="team-title">
-            <h2><?=  $post->post_title; ?></h2>
+            <h2
+				   style="position: relative; cursor: pointer;"
+				   ng-click="setModalDescriptionId(<?= $post->ID ?>)"
+				   data-toggle="modal" data-target="#descriptionModal"
+				   ng-init="descriptions[<?= $post->ID ?>] = {title: '<?= $post->post_title; ?>', content: '<?= $post->post_content; ?>', jobDescription: '<?= $teamMemberJobDescription ?>', twitter: '<?= $twitter; ?>' }"
+
+				><?=  $post->post_title; ?></h2>
             <div class="team-role">
               <?=  get_post_meta($post->ID, '_team_job_description', true) ?>
             </div>
