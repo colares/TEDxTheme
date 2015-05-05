@@ -21,26 +21,21 @@
             <img alt='<?php the_title(); ?>' src="http://img.youtube.com/vi/<?= $video_id; ?>/0.jpg" class="talk-photo">
           </a>
         </div>
+		  <!--          <div class="col-md-6 talk-meta">-->
+		  <?php //single_term($post, 'talk_types'); ?>
+		  <!--          </div>-->
         <div class="row ">
-          <div class="col-md-6 talk-meta">
-            <?php single_term($post, 'talk_types'); ?>
-          </div>
-          <div class="col-md-6 talk-meta">
-            <span class="pull-right"><?php single_term($post, 'talk_years'); ?></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 ">
-            <a class="talk-tile-container" href="<?= get_permalink($post->ID) ?>">
-              <?= $speaker_name ?>
-            </a>
+          <div class="col-md-12">
+			  <p>
+				  <span class="pull-right"><?php single_term($post, 'talk_years'); ?></span>
+				  <a class="talk-tile-container" href="<?= get_permalink($post->ID) ?>">
+					  <?= $speaker_name ?>
+				  </a><br/>
+				  <?= $speaker_role ?><br/>
+			  </p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 talk-meta talk-speaker-role">
-            <?= $speaker_role ?>
-          </div>
-        </div>
+
       </div>
     <?php endwhile; endif; ?>
   </div>
