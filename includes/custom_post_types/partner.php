@@ -53,7 +53,7 @@ class PartnerPostType {
       'menu_position' => 100,
       'taxonomies' => array('partner_types'),
       'register_meta_box_cb' => array($this, 'add_meta_boxes'),
-      'supports' => array('title', 'editor', 'thumbnail'),
+      'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
       'show_in_nav_menus' => true
 
     );
@@ -173,6 +173,8 @@ class PartnerPostType {
     $arguments = array(
       'post_type' => 'partner',
       'posts_per_page' => 100,
+		'orderby' => 'menu_order',
+		'order'   => 'ASC',
       'tax_query' => array(
         array(
           'taxonomy' => 'partner_types',
