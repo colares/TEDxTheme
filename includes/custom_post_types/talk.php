@@ -112,7 +112,7 @@ class TalkPostType {
       'hierarchical'         => false,
       'menu_position'        => 102,
       'taxonomies'           => array('talk_years', 'talk_types', 'talk_categories'),
-		'supports'             => array('title', 'editor', page-attributes'),
+		'supports'             => array('title', 'editor', 'page-attributes'),
       'register_meta_box_cb' => array($this, 'add_meta_boxes')
     );
     // Register the actual type
