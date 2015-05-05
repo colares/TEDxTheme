@@ -789,7 +789,7 @@ ul.page-numbers {
       display: block;
       height: 292px;
       overflow: hidden;
-      padding: 190px 0 15px;
+      padding: 230px 0 15px;
       position: relative; }
       .speaker-tile .speaker-tile-container .speaker-description .speaker-border {
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(0, 0, 0, 0.65)));
@@ -820,7 +820,8 @@ ul.page-numbers {
           font-size: 11px;
           text-transform: uppercase; }
         .speaker-tile .speaker-tile-container .speaker-description .speaker-info h2 {
-          font-size: 16px; }
+          font-size: 16px;
+          margin: 0px; }
         .speaker-tile .speaker-tile-container .speaker-description .speaker-info .speaker-position {
           font-size: 11px;
           line-height: 16px; }

@@ -21,10 +21,12 @@
             <div class="speaker-border"></div>
             <div class="speaker-info">
 				<!-- @todo i18n it! -->
-              <div class="speaker-title">Palestrante</div>
+
               <h2><?= $name; ?></h2>
 
-              <div class="speaker-position"><?= $excerpt ?></div>
+<!--              <div class="speaker-position">-->
+				  
+<!--			  </div>-->
             </div>
           </div>
           <!-- .speaker-title -->
