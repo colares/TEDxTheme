@@ -25,7 +25,7 @@
               <h2><?= $name; ?></h2>
 
 <!--              <div class="speaker-position">-->
-				  
+
 <!--			  </div>-->
             </div>
           </div>

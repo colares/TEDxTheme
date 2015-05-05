@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <div class="container spacing-top">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div class="post-content">
           <?php if (have_posts()): while (have_posts()) : the_post(); ?>
             <?php
@@ -54,9 +54,9 @@
           <?php endwhile; endif; ?>
         </div>
       </div>
-      <div class="col-md-3">
-        <?php get_sidebar('speaker'); ?>
-      </div>
+<!--      <div class="col-md-3">-->
+        <?php //get_sidebar('speaker'); ?>
+<!--      </div>-->
     </div>
   </div>
 <?php get_footer(); ?>
