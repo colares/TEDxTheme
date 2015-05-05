@@ -26,7 +26,7 @@
 		  <!--          </div>-->
         <div class="row ">
           <div class="col-md-12">
-			  <p>
+			  <p class="talk-meta">
 				  <span class="pull-right"><?php single_term($post, 'talk_years'); ?></span>
 				  <a class="talk-tile-container" href="<?= get_permalink($post->ID) ?>">
 					  <?= $speaker_name ?>
