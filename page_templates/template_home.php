@@ -27,30 +27,30 @@ get_header();
         <?php endwhile; endif; ?>
       </section>
 
-      <section>
-        <div class="page-header">
-          <p><strong>Última do blog</strong></p>
-        </div>
-        <?php
-        $query = new TEDxQuery();
-        $sticky_posts = $query->sticky_posts(3);
-        ?>
-
-        <?php if (count($sticky_posts) > 0): ?>
-          <div class="row">
-            <?php foreach ($sticky_posts as $key => $post): setup_postdata($post); ?>
-              <?php if ($key <= 2): //WordPress is garbage
-                ?>
-                <div class="col-md-4">
-                  <?php WP_Render::partial('partials/blog/_post_excerpt.php', ['post' => $post, 'feature_image' => 'post-unsticky', 'hide_excerpt' => true, 'hide_comment' => true, 'append_class' => 'grouped']); ?>
-                </div><!-- .col-md-6 -->
-              <?php endif; ?>
-            <?php endforeach; ?>
-
-          </div>
-          <!-- .row -->
-        <?php endif; ?>
-      </section>
+<!--      <section>-->
+<!--        <div class="page-header">-->
+<!--          <p><strong>Última do blog</strong></p>-->
+<!--        </div>-->
+<!--        --><?php
+//        $query = new TEDxQuery();
+//        $sticky_posts = $query->sticky_posts(3);
+//        ?>
+<!---->
+<!--        --><?php //if (count($sticky_posts) > 0): ?>
+<!--          <div class="row">-->
+<!--            --><?php //foreach ($sticky_posts as $key => $post): setup_postdata($post); ?>
+<!--              --><?php //if ($key <= 2): //WordPress is garbage
+//                ?>
+<!--                <div class="col-md-4">-->
+<!--                  --><?php //WP_Render::partial('partials/blog/_post_excerpt.php', ['post' => $post, 'feature_image' => 'post-unsticky', 'hide_excerpt' => true, 'hide_comment' => true, 'append_class' => 'grouped']); ?>
+<!--                </div><!-- .col-md-6 -->-->
+<!--              --><?php //endif; ?>
+<!--            --><?php //endforeach; ?>
+<!---->
+<!--          </div>-->
+<!--          <!-- .row -->-->
+<!--        --><?php //endif; ?>
+<!--      </section>-->
 
     </div>
     <div class="col-md-3">
