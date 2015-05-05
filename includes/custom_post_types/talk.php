@@ -111,7 +111,7 @@ class TalkPostType {
       'has_archive'          => true,
       'hierarchical'         => false,
       'menu_position'        => 102,
-      'taxonomies'           => array('talk_years', 'talk_types', 'talk_categories'),
+      'taxonomies'           => array('talk_years', 'talk_types', 'talk_categories', 'page-attributes'),
       'register_meta_box_cb' => array($this, 'add_meta_boxes')
     );
     // Register the actual type
@@ -325,6 +325,8 @@ class TalkPostType {
     $arguments = array(
       'post_type'      => 'talk',
       'posts_per_page' => $limit,
+		'orderby' => 'menu_order',
+		'order'   => 'ASC',
       'tax_query'      => array(
         array(
           'taxonomy' => 'talk_years',
