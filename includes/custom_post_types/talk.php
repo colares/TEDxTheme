@@ -111,7 +111,8 @@ class TalkPostType {
       'has_archive'          => true,
       'hierarchical'         => false,
       'menu_position'        => 102,
-      'taxonomies'           => array('talk_years', 'talk_types', 'talk_categories', 'page-attributes'),
+      'taxonomies'           => array('talk_years', 'talk_types', 'talk_categories'),
+		'supports'             => array('page-attributes'),
       'register_meta_box_cb' => array($this, 'add_meta_boxes')
     );
     // Register the actual type
