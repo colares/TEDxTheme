@@ -29,7 +29,7 @@
 					 ng-click="setModalDescriptionId(<?= $post->ID ?>)"
 					 data-toggle="modal" data-target="#descriptionModal"
 					>
-					<h5><?=  $post->post_title; ?><br/><small style="color: white"><?=  get_post_meta($post->ID, '_team_job_description', true) ?></small></h5>
+					<h5><?=  $post->post_title; ?><br/><small style="color: white"><?=  get_post_meta($post->ID, '_team_job_description', true) ?>&nbsp;</small></h5>
 				</div>
 			</div>
 
