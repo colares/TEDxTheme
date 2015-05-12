@@ -8,6 +8,7 @@ class TeamPostType {
   );
 
   function __construct () {
+	  add_action('init', array($this, 'add_team_member_types_taxonomy'));
     add_action('init', array($this, 'add_post_type'));
     add_action('manage_edit-team_member_columns', array($this, 'team_member_columns'));
     add_action('manage_team_member_posts_custom_column', array($this, 'team_member_columns_content'));
@@ -51,12 +52,27 @@ class TeamPostType {
       'has_archive'          => true,
       'hierarchical'         => false,
       'menu_position'        => 101,
+		'taxonomies' => array('team_member_types'),
       'supports'             => array('title', 'editor', 'thumbnail', 'page-attributes'),
       'register_meta_box_cb' => array($this, 'add_meta_boxes')
     );
     // Register the actual type
     register_post_type('team_member', $team_settings);
   }
+
+	function add_team_member_types_taxonomy() {
+		register_taxonomy(
+			'team_member_types',
+			'team_member',
+			array(
+				'label' => __('Member Types'),
+				'show_in_nav_menus' => true,
+				'show_ui' => true,
+				'hierarchical' => true,
+				'rewrite' => array('slug' => 'talks/year'),
+				'query_var' => 'team_member_type'
+			));
+	}
 
   function custom_title_text ($title) {
     $screen = get_current_screen();
@@ -163,14 +179,49 @@ class TeamPostType {
     }
   }
 
-  function team_members_shortcode () {
-    $team_members = $this->get_raw_team_members();
-    ob_start();
-    require(get_template_directory() . '/shortcode_templates/team_members_shortcode.php');
-    $output = ob_get_clean();
+	function get_team_members_for($team_member_type_slug) {
+		return $this->get_get_raw_team_members_for($team_member_type_slug)->posts;
+	}
+
+  function team_members_shortcode ($atts) {
+	  $a = shortcode_atts(array(
+		  'type' => null,
+		  'type_name' => 'Team Member Type'
+	  ), $atts);
+	  $team_member_type = $a['type'];
+	  if ($team_member_type !== null) {
+		  $team_members = $this->get_raw_team_members_for($team_member_type);
+		  $term = get_term_by('slug', $team_member_type, 'team_member_types');
+		  $name = $term->description;
+		  ob_start();
+		  require(get_template_directory() . '/shortcode_templates/team_members_shortcode.php');
+		  $output = ob_get_clean();
+	  }
+
+//    $team_members = $this->get_raw_team_members();
+//    ob_start();
+//    require(get_template_directory() . '/shortcode_templates/team_members_shortcode.php');
+//    $output = ob_get_clean();
 
     return $output;
   }
+
+	function get_raw_team_members_for($team_member_type_slug) {
+		$arguments = array(
+			'post_type' => 'team_member',
+			'posts_per_page' => 100,
+			'orderby' => 'menu_order',
+			'order'   => 'ASC',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'team_member_types',
+					'field' => 'slug',
+					'terms' => $team_member_type_slug
+				)
+			)
+		);
+		return new WP_Query($arguments);
+	}
 
   function get_raw_team_members () {
     $arguments = array(
