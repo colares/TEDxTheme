@@ -6,12 +6,8 @@
 
       <?php
 
-		function getBackgroundColor() {
-			$backgroundColors = array('rgb(242, 124, 177)', 'rgb(124, 194, 66)', 'rgb(255, 198, 11)', 'rgb(57, 197, 233)');
-			return $backgroundColors[array_rand($backgroundColors)];
-		}
-
-
+		$backgroundColors = array('rgb(242, 124, 177)', 'rgb(124, 194, 66)', 'rgb(255, 198, 11)', 'rgb(57, 197, 233)');
+		$randomBackgroundColor = $backgroundColors[array_rand($backgroundColors)];
 
       $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'team');
       if (is_array($thumb) && !empty($thumb[0])) {
@@ -32,11 +28,13 @@
 					alt='<?php the_title(); ?>' src='<?=  $thumbnail_src; ?>'
 					style="position: relative; z-index: 1;" class="team-photo">
 				<div class="caption"
-					 style="cursor: pointer; background-color: <?= getBackgroundColor(); ?>; color: white"
+					 style="cursor: pointer; background-color: <?= $randomBackgroundColor; ?>; color: black"
 					 ng-click="setModalDescriptionId(<?= $post->ID ?>)"
 					 data-toggle="modal" data-target="#descriptionModal"
 					>
-					<h5><?=  $post->post_title; ?><br/><small style="color: white"><?=  get_post_meta($post->ID, '_team_job_description', true) ?>&nbsp;</small></h5>
+					<h5 style="margin: 0"><?=  $post->post_title; ?><br/>
+						<em><small style="color: black"><?=  get_post_meta($post->ID, '_team_job_description', true) ?>&nbsp;</small></em>
+					</h5>
 				</div>
 			</div>
 
@@ -60,7 +58,7 @@
 					</h3>
 					<p class="text-muted"><em>{{descriptions[modalDescriptionId].jobDescription}}</em></p>
 					<p>{{descriptions[modalDescriptionId].content}}</p>
-					<p ng-show="descriptions[modalDescriptionId].twitter != null">
+					<p ng-show="descriptions[modalDescriptionId].twitter">
 						<a href='{{descriptions[modalDescriptionId].twitter}}' target='_blank'>
 							<i class="fa fa-twitter"></i> {{descriptions[modalDescriptionId].twitter}}
 						</a>

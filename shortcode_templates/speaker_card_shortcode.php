@@ -13,12 +13,15 @@
       if (is_array($image) && !empty($image[0])) {
         $image = $image[0];
       }
+
+		$backgroundColors = array('rgb(242, 124, 177)', 'rgb(124, 194, 66)', 'rgb(255, 198, 11)', 'rgb(57, 197, 233)');
+		$randomBackgroundColor = $backgroundColors[array_rand($backgroundColors)];
       ?>
 
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 speaker-tile" data-remote="true" data-href="<?php the_permalink(); ?>">
         <a class="speaker-tile-container" href="<?= get_permalink($speaker->ID) ?>">
           <div class="speaker-description" style="background-image: url(<?= $image ?>);">
-            <div class="speaker-border"></div>
+            <div class="speaker-border" style="border-color: <?= $randomBackgroundColor; ?>"></div>
             <div class="speaker-info">
 				<!-- @todo i18n it! -->
 
