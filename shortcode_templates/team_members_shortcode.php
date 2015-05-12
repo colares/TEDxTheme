@@ -5,6 +5,8 @@
       <?php $post = get_post(); ?>
 
       <?php
+		$term = $team_members->query_vars['term'];
+
 
 		$backgroundColors = array('rgb(242, 124, 177)', 'rgb(124, 194, 66)', 'rgb(255, 198, 11)', 'rgb(57, 197, 233)');
 		$randomBackgroundColor = $backgroundColors[array_rand($backgroundColors)];
@@ -22,7 +24,7 @@
 			<div class="thumbnail"
 				 style="border: 0; cursor: pointer;"
 				 ng-click="setModalDescriptionId(<?= $post->ID ?>)"
-				 data-toggle="modal" data-target="#descriptionModal"
+				 data-toggle="modal" data-target="#descriptionModal-<?= $term; ?>"
 				>
 				<img
 					alt='<?php the_title(); ?>' src='<?=  $thumbnail_src; ?>'
@@ -45,7 +47,7 @@
   </div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="descriptionModal-<?= $term; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 <!--				<div class="modal-header">-->
