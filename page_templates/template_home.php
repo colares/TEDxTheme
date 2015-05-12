@@ -8,7 +8,7 @@ get_header();
 
 <div class="banner" style="background: url(<?php the_field('banner_background'); ?>) top center repeat-x;">
   <div class="banner-container">
-		<a class="btn btn-danger" href="<?php the_field('banner_callout_button_link'); ?>"><?php the_field('banner_callout_button_text'); ?></a>
+<!--		<a class="btn btn-danger" href="--><?php //the_field('banner_callout_button_link'); ?><!--">--><?php //the_field('banner_callout_button_text'); ?><!--</a>-->
 
 	  <!--    <h1>--><?php //the_field('banner_title'); ?><!--</h1>-->
 	  <!---->

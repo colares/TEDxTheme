@@ -61,15 +61,15 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            <div class="call-to-action">
-
-              <?php $button_callout_text = get_theme_mod('button_callout_text', 'CTA');?>
-
-              <?php if(!empty($button_callout_text)): ?>
-              <a href="<?= get_theme_mod('button_callout_link', '/'); ?>" class="btn btn-danger pull-right"><?= $button_callout_text ?></a>
-              <?php endif;?>
-              <span class="copy pull-right clear"><?= get_theme_mod('header_callout', 'Header Callout') ?></span>
-            </div>
+<!--            <div class="call-to-action">-->
+<!---->
+<!--              --><?php //$button_callout_text = get_theme_mod('button_callout_text', 'CTA');?>
+<!---->
+<!--              --><?php //if(!empty($button_callout_text)): ?>
+<!--              <a href="--><?//= get_theme_mod('button_callout_link', '/'); ?><!--" class="btn btn-danger pull-right">--><?//= $button_callout_text ?><!--</a>-->
+<!--              --><?php //endif;?>
+<!--              <span class="copy pull-right clear">--><?//= get_theme_mod('header_callout', 'Header Callout') ?><!--</span>-->
+<!--            </div>-->
           </div>
         </div><!-- .row -->
 
