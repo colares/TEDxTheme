@@ -6,6 +6,13 @@
 
       <?php
 
+		function getBackgroundColor() {
+			$backgroundColors = array('rgb(242, 124, 177)', 'rgb(124, 194, 66)', 'rgb(255, 198, 11)', 'rgb(57, 197, 233)');
+			return $backgroundColors[array_rand($backgroundColors)];
+		}
+
+
+
       $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'team');
       if (is_array($thumb) && !empty($thumb[0])) {
         $thumbnail_src = $thumb[0];
@@ -25,7 +32,7 @@
 					alt='<?php the_title(); ?>' src='<?=  $thumbnail_src; ?>'
 					style="position: relative; z-index: 1;" class="team-photo">
 				<div class="caption"
-					 style="cursor: pointer; background-color: #FF2B06; color: white"
+					 style="cursor: pointer; background-color: <?= getBackgroundColor(); ?>; color: white"
 					 ng-click="setModalDescriptionId(<?= $post->ID ?>)"
 					 data-toggle="modal" data-target="#descriptionModal"
 					>
