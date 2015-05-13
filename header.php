@@ -50,7 +50,7 @@
       <header>
 
         <div class="row">
-          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
             <a href="<?= get_theme_mod('logo_link', '/'); ?>">
               <?php (get_theme_mod('logo')) ? $logo = get_theme_mod('logo') : $logo = 'http://placehold.it/229x50.png' ?>
               <img src="<?= $logo ?>" height="50" alt="Logo" class="pull-left">
@@ -60,7 +60,7 @@
               <span class="location"><?= get_theme_mod('event_location', 'Event Location') ?></span>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 <!--            <div class="call-to-action">-->
 <!---->
 <!--              --><?php //$button_callout_text = get_theme_mod('button_callout_text', 'CTA');?>
