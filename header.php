@@ -15,11 +15,11 @@
 
   <!-- Facebook -->
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:url" content="http://www.tedxpelourinho.com">
+  <meta property="og:url" content="http://www.tedxpelourinho.com/">
   <meta property="og:title" content="TEDxPelourinho 2015: Liberdade!">
   <meta property="og:site_name" content="TEDxPelourinho">
   <meta property="og:description" content="O TEDxPelourinho foi o primeiro TEDx do Nordeste e, em 2015, chega à sua 4a edição com o tema ‘LIBERDADE': queremos provocar e discutir novas formas de convivência, de aprendizado, de arte, de alimentação, de cura, de empreendedorismo, de vida!">
-  <meta property="og:image" content="http://tedxpelourinho.com/wp-content/uploads/2015/05/tedxpelourinho.jpg">
+  <meta property="og:image" content="http://tedxpelourinho.com/wp-content/uploads/2015/05/tedxpelourinho-fb.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="960"> /** PIXELS **/
   <meta property="og:image:height" content="960"> /** PIXELS **/
