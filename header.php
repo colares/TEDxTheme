@@ -12,6 +12,7 @@
   <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
   <link href="//www.google-analytics.com" rel="dns-prefetch">
+  <link rel="image_src" href="http://tedxpelourinho.com/wp-content/uploads/2015/05/tedxpelourinho.jpg">
 
   <!-- JQuery -->
   <script src="//maps.google.com/maps/api/js?sensor=false"></script>
